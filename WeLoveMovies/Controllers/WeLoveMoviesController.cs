@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using WeLoveMovies.Models;
 
 namespace WeLoveMovies.Controllers
@@ -10,9 +11,10 @@ namespace WeLoveMovies.Controllers
     public class WeLoveMoviesController : Controller
     {
         private readonly WeLoveMoviesDbContext _context;
-
-        public WeLoveMoviesController(WeLoveMoviesDbContext context)
+        private readonly string _apiKey;
+        public WeLoveMoviesController(WeLoveMoviesDbContext context, IConfiguration configuration)
         {
+            _apiKey = configuration.GetSection("APIKeys")["APINameKey"];
             _context = context;
         }
 
