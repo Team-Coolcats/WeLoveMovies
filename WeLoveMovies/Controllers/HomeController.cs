@@ -11,12 +11,12 @@ namespace WeLoveMovies.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         public IActionResult Index()
         {
@@ -25,6 +25,7 @@ namespace WeLoveMovies.Controllers
 
         public IActionResult Privacy()
         {
+           // string apiKey = Configuration.GetConnectionString("APINameKey");
             return View();
         }
 
