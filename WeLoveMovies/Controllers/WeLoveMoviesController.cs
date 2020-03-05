@@ -18,6 +18,7 @@ namespace WeLoveMovies.Controllers
 
         public IActionResult Index()
         {
+            string kyle = "hi!";
             var myMovie = new Movie();
             return View();
         }
