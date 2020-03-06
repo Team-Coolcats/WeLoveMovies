@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+}
+
+@model List<Movie>
+
+<h1>Search</h1>
+
+<form action="../Search/Search" method="post">
+    <input type="text" name="title" placeholder="Moviename" />
+    <input type="submit"  />
+</form>
