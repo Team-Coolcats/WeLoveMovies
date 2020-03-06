@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 namespace WeLoveMovies.Models
 {
 
+    public class MovieRootObject
+    {
+        public Movie[] Search { get; set; }
+        public string totalResults { get; set; }
+        public string Response { get; set; }
+    }
+
     public class Movie
+    {
+        public string Title { get; set; }
+        public string Year { get; set; }
+        public string imdbID { get; set; }
+        public string Type { get; set; }
+        public string Poster { get; set; }
+    }
+
+    //Specific movie. 
+    public class MovieDetail
     {
         public string Title { get; set; }
         public string Year { get; set; }
@@ -40,7 +57,5 @@ namespace WeLoveMovies.Models
         public string Source { get; set; }
         public string Value { get; set; }
     }
-
-
 
 }
