@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Favorites List";
+}
+
+@model List<Movie>
+
+<h1>Favorites List</h1>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>Movie image</th>
+            <th>Name of movie</th>
+            <th>>Delete this favorite</th>
+        </tr>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td><img sec="@Model[i].Poster" /></td>
+                <td>@Model[i].Title</td>
+                <td><a href="../Favorites/DeleteFavorite">Delete this favorite: </a></td>
+            </tr>
+        }
+    </table>
+</div>
+
