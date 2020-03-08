@@ -2,7 +2,43 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+
+<style>
+    body {
+        background-image: url(https://i.pinimg.com/564x/2f/cc/21/2fcc213b3a4a2ed7b121a3b068a63715.jpg);
+    }
+
+    .text-center {
+        display: table;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .text-center-container {
+        display: table-cell;
+        width: 100%;
+        vertical-align: middle;
+    }
+
+    .text-center-box {
+        display: inline-block;
+        padding: 50px;
+        background-color: #ffffff;
+    }
+</style>
+
 <div class="text-center">
-    <h1 class="display-4">Team Cool Cats Welcomes You To Our Movie Site!</h1>
-    <p>Please log in <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="text-center-container">
+        <div class="text-center-box">
+            <h1 style="font-family:Cooper">Team Cool Cats</h1>
+            <h2 style="font-family:Cooper">Welcomes You</h2>
+            <h3 style="font-family:Cooper">To Our Movie Site!</h3>
+            <p><img src="https://www.johnlund.com/Images/Pets-At-The-Movies.jpg" alt="cats watching movies" height="400" width="285"></p>
+            
+            <p style="font-family:Cooper">Please log in to view our movies.</p>
+            <p style="font-family:Cooper"> <a href="../Search/Search">Search our Movies here!</a></p>
+        </div>
+    </div>
 </div>
