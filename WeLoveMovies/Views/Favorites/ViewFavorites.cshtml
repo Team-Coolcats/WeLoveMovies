@@ -3,30 +3,28 @@
     ViewData["Title"] = "ViewFavorites";
 }
 
-@*@model List<Favorites>
-<h1>View Favorites</h1>
+    @model List<MovieDetail>
+    <h1>View Favorites</h1>
 
-<table class="table table-hover table-dark">
-    <tr>
-        <th>Poster</th>
-        <th>Title</th>
-        <th>Year Released</th>
-        <th>Genre</th>
-        <th>Rated</th>
-        <th>Plot</th>
-    </tr>
-    @foreach (Favorites film in Model)
-    {
+    <table class="table">
         <tr>
-            <td>@film.Poster</td>
-            <td>@film.Title</td>
-            <td>@film.Year</td>
-            <td>@film.Genre</td>
-            <td>@film.Rated</td>
-            <td>@film.Plot</td>
-            <td><a href="../Favorites/DeleteMovie?id=@Movie.Id">Delete</a></td>
+            <th>Title</th>
+            <th>Year Released</th>
+            <th>Genre</th>
+            <th>Rated</th>
+            <th>Actors</th>
         </tr>
-    }
- 
-</table>
-<a href="../Favorites/ViewFavorites" class="btn btn-dark">Add a Movie to Favorites!</a>*@
+        @foreach (MovieDetail film in Model)
+        {
+            <tr>
+                <td>@film.Title</td>
+                <td>@film.Year</td>
+                <td>@film.Genre</td>
+                <td>@film.Rated</td>
+                <td>@film.Actors</td>
+                <td><a href="../Favorites/DeleteMovie?imdbID=@film.imdbID">Delete</a></td>
+            </tr>
+        }
+
+    </table>
+

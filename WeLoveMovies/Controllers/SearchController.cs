@@ -34,20 +34,65 @@ namespace WeLoveMovies.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Search(string title)
+        public async Task<IActionResult> Search(string title, string year, string type)
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri("http://www.omdbapi.com/");
-         
-            var response = await client.GetAsync($"?apikey={_apiKey}&s={title}");
 
-            //works
-            //var movies1 = await response.Content.ReadAsStringAsync();
-       
-            var movies = await response.Content.ReadAsAsync<MovieRootObject>();
+            //Title + Year + Type
+            if ((title != null) & (year != null) & (type != null))
+            {
+                var response = await client.GetAsync($"?apikey={_apiKey}&s={title}&y={year}&type={type}");
+                var movies = await response.Content.ReadAsAsync<MovieRootObject>();
+                if (movies.Search != null)
+                {
+                    return View("DisplaySearchResults", movies);
+                }
+            }
 
-            return View("DisplaySearchResults", movies);
+            //Title + Type
+            else if ((title != null) & (type != null))
+            {
+                //do more stuff
+                var response = await client.GetAsync($"?apikey={_apiKey}&s={title}&type={type}");
+                var movies = await response.Content.ReadAsAsync<MovieRootObject>();
+                if (movies.Search != null)
+                {
+                    return View("DisplaySearchResults", movies);
+                }
+            }
+
+            //Title + Year
+            else if ((title != null) & (year != null))
+            {
+                //do title+year stuff
+                var response = await client.GetAsync($"?apikey={_apiKey}&s={title}&y={year}");
+                var movies = await response.Content.ReadAsAsync<MovieRootObject>();
+                if (movies.Search != null)
+                {
+                    return View("DisplaySearchResults", movies);
+                }
+            }
+
+            //Just Title           
+            else if (title != null)
+            {
+                var response = await client.GetAsync($"?apikey={_apiKey}&s={title}");
+                var movies = await response.Content.ReadAsAsync<MovieRootObject>();
+                if (movies.Search != null)
+                {
+                    return View("DisplaySearchResults", movies);
+                }
+            }
+
+            //Everything blank/error
+            else
+            {
+                return RedirectToAction("Search");
+            }
+            return RedirectToAction("Search");
         }
+
 
         [HttpGet]
         public IActionResult DisplaySearchResults()
@@ -55,6 +100,6 @@ namespace WeLoveMovies.Controllers
             return View();
         }
 
-        //AddToFavorites()
+
     }
 }
