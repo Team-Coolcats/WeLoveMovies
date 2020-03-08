@@ -22,10 +22,9 @@
                 <td>@film.Genre</td>
                 <td>@film.Rated</td>
                 <td>@film.Actors</td>
-                @*<td><a href="../Favorites/DeleteMovie?id=@Movie.Id">Delete</a></td>*@
+                <td><a href="../Favorites/DeleteMovie?imdbID=@film.imdbID">Delete</a></td>
             </tr>
         }
 
     </table>
-    <a href="../Favorites/ViewFavorites">Add a Movie to Favorites!</a>
 
