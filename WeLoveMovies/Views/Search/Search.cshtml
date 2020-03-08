@@ -5,20 +5,40 @@
 
 @model List<Movie>
 
-<h1>Search</h1>
+<h1 style="text-align:center">Search</h1>
 
 <form action="../Search/Search" method="post">
-    <input type="text" name="title" placeholder="Moviename" required
-           oninvalid="this.setCustomValidity('Field must not be blank.')"
-           oninput="this.setCustomValidity('')" />
-    
-    <input type="text" name="year" placeholder="Release Year" />
-    
-    <select name="type">
-        <option value="">Filter by:</option>
-        <option value="movie">Movie</option>
-        <option value="series">Series</option>
-        <option value="episodes">Episode</option>
-    </select>
-    <input type="submit" />
+    <div class="row">
+        <div class="col">
+            <label for="titleSearch">Title Name</label>
+            <input id="titleSearch" class="form-control form-control-lg" type="text" name="title" placeholder="Title" required
+                   oninvalid="this.setCustomValidity('Field must not be blank.')"
+                   oninput="this.setCustomValidity('')" />
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col">
+            <label for="yearSearch">Release Year</label>
+            <input id="yearSearch" class="form-control" type="text" name="year" placeholder="Year" />
+        </div>
+
+
+        <div class="col">
+            <label for="typeSearch">Filter by</label>
+            <select id="typeSearch" name="type" class="custom-select">
+                <option value="">Choose one...</option>
+                <option value="movie">Movie</option>
+                <option value="series">Series</option>
+                <option value="game">Game</option>
+                <option value="episodes">Episode</option>
+            </select>
+        </div>
+    </div>
+    <br />
+    <div style="text-align:center">
+        <input class="btn btn-block btn-primary" type="submit" />
+    </div>
+
 </form>

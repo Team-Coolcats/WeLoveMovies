@@ -7,7 +7,7 @@
 
 
 
-<h1>DisplaySearchResults</h1>
+<h1 style="text-align:center">Search Results</h1>
 <div style="margin:auto;">
     <table style="text-align:center;" class="table table-bordered">
         <tr>
@@ -22,25 +22,31 @@
         {
             for (int i = 0; i < Model.Search.Length; i++)
             {
-                <tr>
-                    <td>@Model.Search[i].Title</td>
+    <tr class="table table-hover">
+        <td style="vertical-align:middle">@Model.Search[i].Title</td>
+        <td style="vertical-align:middle">@Model.Search[i].Year</td>
+        <td style="vertical-align:middle">@Model.Search[i].Type</td>
+        @if (Model.Search[i].Poster == "N/A")
+        {
+            <td style="vertical-align:middle"><img style="width:150px;" src="https://i.imgur.com/KznY2tM.jpg" /></td>
 
-                    <td>@Model.Search[i].Year</td>
+        }
+        else
+        {
+            <td style="vertical-align:middle"><img style="width:150px;" src="@Model.Search[i].Poster" /></td>
+        }
 
-                    <td>@Model.Search[i].Type</td>
 
-                    <td><img style="width:200px;" src="@Model.Search[i].Poster" /></td>
-
-                    <td><a class="btn btn-success" href="../Favorites/AddToFavorites?imdbID=@Model.Search[i].imdbID">Add</a></td>
-                </tr>
+        <td style="vertical-align:middle">
+            <a class="btn btn-success" href="../Favorites/AddToFavorites?imdbID=@Model.Search[i].imdbID">Add</a>
+        </td>
+    </tr>
             }
         }
-        else 
-        { 
+        else
+        {
             <p>No results found :(</p>
         }
-
-
-
     </table>
 </div>
+

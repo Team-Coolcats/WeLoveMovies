@@ -44,7 +44,10 @@ namespace WeLoveMovies.Controllers
             {
                 var response = await client.GetAsync($"?apikey={_apiKey}&s={title}&y={year}&type={type}");
                 var movies = await response.Content.ReadAsAsync<MovieRootObject>();
-                return View("DisplaySearchResults", movies);
+                if (movies.Search != null)
+                {
+                    return View("DisplaySearchResults", movies);
+                }
             }
 
             //Title + Type
@@ -53,7 +56,10 @@ namespace WeLoveMovies.Controllers
                 //do more stuff
                 var response = await client.GetAsync($"?apikey={_apiKey}&s={title}&type={type}");
                 var movies = await response.Content.ReadAsAsync<MovieRootObject>();
-                return View("DisplaySearchResults", movies);
+                if (movies.Search != null)
+                {
+                    return View("DisplaySearchResults", movies);
+                }
             }
 
             //Title + Year
@@ -62,7 +68,10 @@ namespace WeLoveMovies.Controllers
                 //do title+year stuff
                 var response = await client.GetAsync($"?apikey={_apiKey}&s={title}&y={year}");
                 var movies = await response.Content.ReadAsAsync<MovieRootObject>();
-                return View("DisplaySearchResults", movies);
+                if (movies.Search != null)
+                {
+                    return View("DisplaySearchResults", movies);
+                }
             }
 
             //Just Title           
@@ -70,7 +79,10 @@ namespace WeLoveMovies.Controllers
             {
                 var response = await client.GetAsync($"?apikey={_apiKey}&s={title}");
                 var movies = await response.Content.ReadAsAsync<MovieRootObject>();
-                return View("DisplaySearchResults", movies);
+                if (movies.Search != null)
+                {
+                    return View("DisplaySearchResults", movies);
+                }
             }
 
             //Everything blank/error
@@ -78,7 +90,9 @@ namespace WeLoveMovies.Controllers
             {
                 return RedirectToAction("Search");
             }
+            return RedirectToAction("Search");
         }
+
 
         [HttpGet]
         public IActionResult DisplaySearchResults()
@@ -86,6 +100,6 @@ namespace WeLoveMovies.Controllers
             return View();
         }
 
-        //AddToFavorites()
+
     }
 }
