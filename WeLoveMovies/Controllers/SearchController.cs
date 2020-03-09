@@ -56,7 +56,6 @@ namespace WeLoveMovies.Controllers
             //Title + Type
             else if ((title != null) & (type != null))
             {
-                //do more stuff
                 var response = await client.GetAsync($"?apikey={_apiKey}&s={title}&type={type}");
                 var movies = await response.Content.ReadAsAsync<MovieRootObject>();
                 if (movies.Search != null)
@@ -68,7 +67,6 @@ namespace WeLoveMovies.Controllers
             //Title + Year
             else if ((title != null) & (year != null))
             {
-                //do title+year stuff
                 var response = await client.GetAsync($"?apikey={_apiKey}&s={title}&y={year}");
                 var movies = await response.Content.ReadAsAsync<MovieRootObject>();
                 if (movies.Search != null)
@@ -95,7 +93,6 @@ namespace WeLoveMovies.Controllers
             }
             return RedirectToAction("Search");
         }
-
 
         [HttpGet]
         public IActionResult DisplaySearchResults()
