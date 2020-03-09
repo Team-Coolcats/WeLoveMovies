@@ -37,9 +37,18 @@
         }
 
 
-        <td style="vertical-align:middle">
+        @*<td style="vertical-align:middle">
             <a class="btn btn-success" href="../Favorites/AddToFavorites?imdbID=@Model.Search[i].imdbID">Add</a>
         </td>
+        *@
+
+        <td>
+            <form action="../Favorites/AddToFavorites" method="post">
+                <input type="hidden" name="imdbID" value="@Model.Search[i].imdbID" />
+                <input type="submit" value="Add to Favorites" />
+            </form>
+        </td>
+        <td><a href="../Favorites/AddToFavorites?imdbID=@Model.Search[i].imdbID">Add to Favorites</a></td>
     </tr>
             }
         }
