@@ -74,17 +74,17 @@ namespace WeLoveMovies.Controllers
             }
         }
 
-        [HttpDelete("{imdbID}")]
-        public async Task<IActionResult> DeleteFavoriteAsync(string imdbID)
+        public async Task<IActionResult> DeleteFavorite(string imdbID)
         {
-            var foundFavorite = _context.Favorites.Where(x => x.MovieId == imdbID);
+            var foundFavorite = _context.Favorites.Where(x => x.MovieId == imdbID).First();
+
             if (foundFavorite == null)
             {
                 return NotFound();
             }
             _context.Remove(foundFavorite);
             await _context.SaveChangesAsync();
-            return View("ViewFavorites");
+            return RedirectToAction("ViewFavorites");
         }
     }
 }
