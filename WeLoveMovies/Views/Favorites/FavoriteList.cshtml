@@ -5,10 +5,12 @@
 
 @model List<Movie>
 
-<h1>Favorites List</h1>
+
+
+<h1 style="font-family:Cooper">Favorites List</h1>
 
 <div>
-    <table class="table">
+    <table class="table table-hover table-dark">
         <tr>
             <th>Movie image</th>
             <th>Name of movie</th>
@@ -19,7 +21,7 @@
             <tr>
                 <td><img sec="@Model[i].Poster" /></td>
                 <td>@Model[i].Title</td>
-                <td><a href="../Favorites/DeleteFavorite">Delete this favorite: </a></td>
+                <td><a href="../Favorites/DeleteFavorite" class="btn btn-outline-primary">Delete this favorite: </a></td>
             </tr>
         }
     </table>

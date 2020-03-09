@@ -4,41 +4,69 @@
 }
 
 @model List<Movie>
+    <style>
+        body {
+            background-image: url(https://external-preview.redd.it/CrJ4gJN7yXDzFVA9CJ9DsZHz9EcsJYeyJAo84gwrIAk.jpg?width=960&crop=smart&auto=webp&s=26f8d5421eed44b8f89e554322e82f86f33f450a);
+        }
+
+        .text-center {
+            display: table;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .text-center-container {
+            display: table-cell;
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .text-center-box {
+            display: inline-block;
+            padding: 50px;
+            background-color: #ffffff;
+        }
+    </style>
 
 <h1 style="text-align:center">Search</h1>
 
-<form action="../Search/Search" method="post">
-    <div class="row">
-        <div class="col">
-            <label for="titleSearch">Title Name</label>
-            <input id="titleSearch" class="form-control form-control-lg" type="text" name="title" placeholder="Title" required
-                   oninvalid="this.setCustomValidity('Field must not be blank.')"
-                   oninput="this.setCustomValidity('')" />
+<div style="background-color: gold">
+    <form action="../Search/Search" method="post">
+
+        <div class="row">
+            <div class="col">
+                <label for="titleSearch">Title Name</label>
+                <input id="titleSearch" class="form-control form-control-lg" type="text" name="title" placeholder="Title" required
+                       oninvalid="this.setCustomValidity('Field must not be blank.')"
+                       oninput="this.setCustomValidity('')" />
+            </div>
         </div>
-    </div>
-    <br />
+        <br />
 
-    <div class="row">
-        <div class="col">
-            <label for="yearSearch">Release Year</label>
-            <input id="yearSearch" class="form-control" type="text" name="year" placeholder="Year" />
+        <div class="row">
+            <div class="col">
+                <label for="yearSearch">Release Year</label>
+                <input id="yearSearch" class="form-control" type="text" name="year" placeholder="Year" />
+            </div>
+
+
+            <div class="col">
+                <label for="typeSearch">Filter by</label>
+                <select id="typeSearch" name="type" class="custom-select">
+                    <option value="">Choose one...</option>
+                    <a href="C:\Users\hjohnsick\Desktop\GrandCircusLabs\WeLoveMovies\WeLoveMovies\Views\Search\Search.cshtml">C:\Users\hjohnsick\Desktop\GrandCircusLabs\WeLoveMovies\WeLoveMovies\Views\Search\Search.cshtml</a>
+                    <option value="movie">Movie</option>
+                    <option value="series">Series</option>
+                    <option value="game">Game</option>
+                    <option value="episodes">Episode</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <div style="text-align:center">
+            <input class="btn btn-block btn-outline-primary" type="submit" />
         </div>
 
-
-        <div class="col">
-            <label for="typeSearch">Filter by</label>
-            <select id="typeSearch" name="type" class="custom-select">
-                <option value="">Choose one...</option>
-                <option value="movie">Movie</option>
-                <option value="series">Series</option>
-                <option value="game">Game</option>
-                <option value="episodes">Episode</option>
-            </select>
-        </div>
-    </div>
-    <br />
-    <div style="text-align:center">
-        <input class="btn btn-block btn-primary" type="submit" />
-    </div>
-
-</form>
+    </form>
+</div>
