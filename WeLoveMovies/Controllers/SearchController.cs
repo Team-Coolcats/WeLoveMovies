@@ -10,6 +10,7 @@ using WeLoveMovies.Models;
 
 namespace WeLoveMovies.Controllers
 {
+    [Authorize]
     public class SearchController : Controller
     {
 
