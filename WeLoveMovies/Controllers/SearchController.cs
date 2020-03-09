@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using WeLoveMovies.Models;
@@ -19,6 +20,7 @@ namespace WeLoveMovies.Controllers
             _apiKey = configuration.GetSection("APIKeys")["APINameKey"];
             _context = context;
         }
+        
         public IActionResult Index()
         {
             return View();
@@ -27,12 +29,13 @@ namespace WeLoveMovies.Controllers
         //so, for this fella, i think best approach would be:
         //  Just call the action 'Search', and use various case statements to determine search type
         //  Must consider ways to do "multi search" i.e. search by title && year
+        
         [HttpGet]
         public IActionResult Search()
         {
             return View();
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> Search(string title, string year, string type)
         {

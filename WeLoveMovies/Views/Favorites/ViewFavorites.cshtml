@@ -4,9 +4,33 @@
 }
 
     @model List<MovieDetail>
-    <h1>View Favorites</h1>
+    <style>
+        body {
+            background-image: url(https://data.whicdn.com/images/221000530/original.jpg);
+        }
 
-    <table class="table">
+        .text-center {
+            display: table;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .text-center-container {
+            display: table-cell;
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .text-center-box {
+            display: inline-block;
+            padding: 50px;
+            background-color: #ffffff;
+        }
+    </style>
+    <h1 style="font-family:Cooper">View Favorites</h1>
+
+    <table class="table table-hover table-dark">
         <tr>
             <th>Title</th>
             <th>Year Released</th>
@@ -22,7 +46,7 @@
                 <td>@film.Genre</td>
                 <td>@film.Rated</td>
                 <td>@film.Actors</td>
-                <td><a href="../Favorites/DeleteMovie?imdbID=@film.imdbID">Delete</a></td>
+                <td><a href="../Favorites/DeleteFavorite?imdbID=@film.imdbID" class="btn btn-outline-danger">Delete</a></td>
             </tr>
         }
 
